@@ -1,0 +1,15 @@
+---
+title: "P8105 HW 1"
+author: "Vanessa Dinh (vd2407)"
+date: 2022-9-22
+output: github_document
+---
+
+
+```{r problem_1}
+data("penguins", package = "palmerpenguins")
+penguins
+names(penguins) 
+skimr::skim(penguins)
+#mean(penguins, flipper_length_mm)
+```
