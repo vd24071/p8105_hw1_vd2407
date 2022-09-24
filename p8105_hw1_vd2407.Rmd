@@ -7,9 +7,21 @@ output: github_document
 
 
 ```{r problem_1}
+library(tidyverse)
 data("penguins", package = "palmerpenguins")
-penguins
+view(penguins)
+str(penguins)
+head(penguins)
+tail(penguins)
+
 names(penguins) 
-skimr::skim(penguins)
-#mean(penguins, flipper_length_mm)
+ncol(penguins)
+nrow(penguins)
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("bill_vs_flipper.png")
 ```
+
+The penguins dataset has 8 columns and 344 rows. There are 8 variables which are species, island, bill length (mm), bill depth (mm), flipper_length (mm), body mass (grams), sex, and year. Species, island, and sex are factor variables while the rest are numeric. The dataset includes 3 penguin species, 3 different islands, and two sexes across years 2007 to 2009. 
+
+The mean flipper length within the penguins dataset is 200.9152 mm.
