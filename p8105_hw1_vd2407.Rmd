@@ -5,7 +5,7 @@ date: 2022-9-22
 output: github_document
 ---
 
-```{r load_libraries}
+```{r load_libraries, results = FALSE}
 library(tidyverse)
 ```
 
@@ -50,7 +50,7 @@ mean(prob_2$fact_vec)
 ```
 The mean function works for the random sample and logical vectors, but returns NA for character and factor vectors. Since the logical vector codes 0 and 1 for FALSE and TRUE, the mean function takes the average of these as if they were numeric. 
 
-```{r problem_2_part_2, eval = FALSE}
+```{r problem_2_part_2, results = FALSE}
 as.numeric(prob_2$log_vec)
 as.numeric(prob_2$char_vec)
 as.numeric(prob_2$fact_vec)
