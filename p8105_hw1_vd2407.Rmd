@@ -5,9 +5,13 @@ date: 2022-9-22
 output: github_document
 ---
 
+```{r load_libraries}
+library(tidyverse)
+```
+
+# Problem 1
 
 ```{r problem_1}
-library(tidyverse)
 data("penguins", package = "palmerpenguins")
 view(penguins)
 str(penguins)
@@ -25,3 +29,24 @@ ggsave("bill_vs_flipper.png")
 The penguins dataset has 8 columns and 344 rows. There are 8 variables which are species, island, bill length (mm), bill depth (mm), flipper_length (mm), body mass (grams), sex, and year. Species, island, and sex are factor variables while the rest are numeric. The dataset includes 3 penguin species, 3 different islands, and two sexes across years 2007 to 2009. 
 
 The mean flipper length within the penguins dataset is 200.9152 mm.
+
+# Problem 2
+
+```{r problem_2_part_1, eval = TRUE}
+prob_2 <- tibble(
+  random_sample = rnorm(10),
+  log_vec = random_sample > 0,
+  char_vec = c("a","b","d","c","b","a","c","b","d","a"),
+  fact_vec = factor(char_vec, levels = c("a","b","c"))
+)
+
+view(prob_2)
+
+mean(prob_2$random_sample)
+mean(prob_2$log_vec)
+mean(prob_2$char_vec)
+mean(prob_2$fact_vec)
+
+```
+The mean function works for the random sample and logical vectors, but returns NA for character and factor vectors. Since the logical vector codes 0 and 1 for FALSE and TRUE, the mean function takes the average of these as if they were numeric. 
+
